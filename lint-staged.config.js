@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
     // 'packages/ui/**/*.{js,jsx,ts,tsx}': [
     //     'npm run lint --workspace=@astral/ui',

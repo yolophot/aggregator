@@ -11,7 +11,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -20,6 +21,8 @@
     "read-dir-names": "^1.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.2",
+    "@commitlint/config-conventional": "^18.4.2",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
@@ -35,7 +38,7 @@
     "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "@vitest/ui": "^0.34.6",
-    "commitlint": "^18.4.2",
+    "commitlint": "^17.0.4",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
@@ -43,8 +46,8 @@
     "eslint-plugin-react-refresh": "^0.4.4",
     "eslint-plugin-storybook": "^0.6.15",
     "happy-dom": "^12.10.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.1.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^11.1.2",
     "prettier": "^3.1.0",
     "storybook": "^7.5.3",
     "typescript": "^5.2.2",
