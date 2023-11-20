@@ -1,0 +1,38 @@
+module.exports = {
+    // 'packages/ui/**/*.{js,jsx,ts,tsx}': [
+    //     'npm run lint --workspace=@astral/ui',
+    //     () => 'npm run lint:types --workspace=@astral/ui',
+    // ],
+    //
+    // 'packages/components/**/*.{js,jsx,ts,tsx}': [
+    //     'npm run lint --workspace=@astral/components',
+    //     () => 'npm run lint:types --workspace=@astral/components',
+    // ],
+    // 'packages/components/**/styles.{ts,tsx}': [
+    //     'npm run lint:styles --workspace=@astral/components',
+    // ],
+    //
+    // 'packages/icons/**/*.{js,jsx,ts,tsx}': [
+    //     'npm run lint --workspace=@astral/icons',
+    //     () => 'npm run lint:types --workspace=@astral/icons',
+    // ],
+    //
+    // 'packages/form/**/*.{js,jsx,ts,tsx}': [
+    //     'npm run lint --workspace=@astral/form',
+    //     () => 'npm run lint:types --workspace=@astral/form',
+    // ],
+    //
+    // 'packages/features/**/*.{js,jsx,ts,tsx}': [
+    //     'npm run lint --workspace=@astral/features',
+    //     () => 'npm run lint:types --workspace=@astral/features',
+    // ],
+    // 'packages/features/**/styles.{ts,tsx}': ['npm run lint:styles --workspace=@astral/features'],
+    //
+    // 'commander/**/*.{js}': ['npm run lint --workspace=@astral/commander'],
+    //
+    // 'PRTitleLinter/**/*.{js}': ['npm run lint --workspace=@astral/PRTitleLinter'],
+    'packages/ui-kit/**/*.{js,jsx,ts,tsx}': [
+        'npm run lint --workspace=packages/ui-kit',
+        () => 'npm run lint:types --workspace=packages/ui-kit',
+    ],
+};
