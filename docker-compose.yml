@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile # Указываем путь к Dockerfile
+    ports:
+      - "8000:8000" # Пробрасываем порт для доступа к приложению
+    container_name: my-frontend
