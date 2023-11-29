@@ -1,5 +1,5 @@
 module.exports = {
-    branches: ['main', { name: 'development', prerelease: 'development' }],
+    branches: ['main', { name: 'develop', prerelease: 'develop' }],
     repositoryUrl: 'https://github.com/ayles1/photo',
     plugins: [
         [
@@ -12,6 +12,7 @@ module.exports = {
                     { type: 'refactor', release: 'patch' },
                     { type: 'major', release: 'major' },
                     { type: 'doc', release: 'patch' },
+                    { type: 'ci', release: 'patch' },
                 ],
             },
         ],
@@ -42,6 +43,11 @@ module.exports = {
                             section: '📄 Docs',
                             hidden: false,
                         },
+                        {
+                            type: 'ci',
+                            section: '🔨 CI',
+                            hidden: false,
+                        },
                     ],
                 },
             },
@@ -53,14 +59,5 @@ module.exports = {
             },
         ],
         ['@semantic-release/github'],
-        [
-            '@semantic-release/exec',
-            {
-                // добавляем в env gh actions версии пакетов
-                prepareCmd:
-                    // eslint-disable-next-line
-                    "echo 'NEXT_VERSION=${nextRelease.version}' >> $GITHUB_ENV; echo 'CURRENT_VERSION=${lastRelease.version}' >> $GITHUB_ENV",
-            },
-        ],
     ],
 };
