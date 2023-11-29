@@ -3,32 +3,8 @@ name: 'Create release'
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
-    branches: [main]
-
 jobs:
-  print_token:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print GitHub Token
-        run: echo ${{ secrets.YOUR_GITHUB_TOKEN }}
-        env:
-          YOUR_GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
-  # Устанавливает should_skip в true, если одновременно запускается два релиза
-#  checkConcurrentRelease:
-#    runs-on: ubuntu-latest
-#    outputs:
-#      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-#    steps:
-#      - id: skip_check
-#        uses: fkirc/skip-duplicate-actions@v5
-#        with:
-#          concurrent_skipping: 'always'
-#          skip_after_successful_duplicate: 'true'
-
   releasePackages:
-#    needs: checkConcurrentRelease
-#    if: needs.pre_job.outputs.should_skip != 'true'
     name: Release packages
     runs-on: ubuntu-latest
     steps:
@@ -46,6 +22,5 @@ jobs:
         id: semantic_release
         run: npx semantic-release
         env:
-#          GH_TOKEN: ${{ env.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
