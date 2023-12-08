@@ -15,6 +15,9 @@ module.exports = {
                     { type: 'style', release: 'patch' },
                     { type: 'test', release: 'patch' },
                     { type: 'refactor', release: 'patch' },
+                    { type: 'major', release: 'major' },
+                    { type: 'doc', release: 'patch' },
+                    { type: 'ci', release: 'patch' },
                     { type: 'fix', release: 'patch' },
                     { type: 'docs', release: 'patch' },
                 ],
@@ -45,6 +48,11 @@ module.exports = {
                         {
                             type: 'doc',
                             section: '📄 Docs',
+                            hidden: false,
+                        },
+                        {
+                            type: 'ci',
+                            section: '🔨 CI',
                             hidden: false,
                         },
                     ],
