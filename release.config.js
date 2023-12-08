@@ -1,6 +1,6 @@
 module.exports = {
     branches: ['main', { name: 'develop', prerelease: 'develop' }],
-    repositoryUrl: 'https://github.com/ayles1/aggregator',
+    repositoryUrl: 'https://github.com/yolophot/aggregator',
     plugins: [
         [
             '@semantic-release/commit-analyzer',
