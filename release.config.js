@@ -1,17 +1,22 @@
 module.exports = {
-    branches: ['main', { name: 'development', prerelease: 'development' }],
-    repositoryUrl: 'https://github.com/ayles1/photo',
+    branches: ['main', { name: 'develop', prerelease: 'develop' }],
+    repositoryUrl: 'https://github.com/ayles1/aggregator',
     plugins: [
         [
             '@semantic-release/commit-analyzer',
             {
                 releaseRules: [
-                    { type: 'bug', release: 'patch' },
-                    { type: 'build', release: 'patch' },
+                    { type: 'build', release: 'major' },
                     { type: 'feat', release: 'minor' },
+                    { type: 'chore', release: 'patch' },
+                    { type: 'ci', release: 'patch' },
+                    { type: 'perf', release: 'patch' },
+                    { type: 'revert', release: 'patch' },
+                    { type: 'style', release: 'patch' },
+                    { type: 'test', release: 'patch' },
                     { type: 'refactor', release: 'patch' },
-                    { type: 'major', release: 'major' },
-                    { type: 'doc', release: 'patch' },
+                    { type: 'fix', release: 'patch' },
+                    { type: 'docs', release: 'patch' },
                 ],
             },
         ],
@@ -23,7 +28,7 @@ module.exports = {
                 presetConfig: {
                     types: [
                         {
-                            type: 'bug',
+                            type: 'fix',
                             section: '🐞 Bugs',
                             hidden: false,
                         },
@@ -56,9 +61,7 @@ module.exports = {
         [
             '@semantic-release/exec',
             {
-                // добавляем в env gh actions версии пакетов
                 prepareCmd:
-                    // eslint-disable-next-line
                     "echo 'NEXT_VERSION=${nextRelease.version}' >> $GITHUB_ENV; echo 'CURRENT_VERSION=${lastRelease.version}' >> $GITHUB_ENV",
             },
         ],
