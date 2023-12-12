@@ -1,5 +1,5 @@
-import { AppRoutes, getRouteMain, getRouteSettings } from '@pet/shared';
-import MainPage from '@pet/pages/Main/Main.page.tsx';
+import { AppRoutes, getRouteMain, getRouteSettings } from '@/shared';
+import MainPage from '@/pages/Main/Main.page.tsx';
 
 export const routeConfig = {
     [AppRoutes.MAIN]: {

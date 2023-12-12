@@ -16,11 +16,21 @@
     "prepare": "husky install",
     "chromatic": "npx chromatic --project-token=chpt_256df044a8f9fb9"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
+    "@radix-ui/react-slider": "^1.1.2",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.294.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
-    "read-dir-names": "^1.0.0"
+    "read-dir-names": "^1.0.0",
+    "tailwind-merge": "^2.1.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.2",
@@ -40,13 +50,14 @@
     "@storybook/react-vite": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
     "@testing-library/react": "^14.1.2",
-    "@types/node": "^20.10.0",
+    "@types/node": "^20.10.4",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "@vitest/ui": "^0.34.6",
+    "autoprefixer": "^10.4.16",
     "chromatic": "^10.1.0",
     "commitlint": "^17.0.4",
     "eslint": "^8.53.0",
@@ -61,11 +72,11 @@
     "prettier": "^3.1.0",
     "semantic-release": "^22.0.8",
     "storybook": "^7.5.3",
+    "tailwindcss": "^3.3.6",
     "typescript": "^5.2.2",
+    "utils": "file:packages/utils",
     "vite": "^5.0.0",
     "vite-plugin-istanbul": "^5.0.0",
     "vitest": "^0.34.6"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "photo-aggregator@0.0.0"
+  }
 }
