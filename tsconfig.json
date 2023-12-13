@@ -27,28 +27,15 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      //{
-      //  "compilerOptions": {
-      //    "baseUrl": ".",
-      //    "paths": {
       "@/*": [
         "./src/*"
       ],
-      //    }
-      // ...
-      //  }
-      //}
-
-//      "@pet/*": [
-//        "src/*"
-//      ]
     }
   },
   "include": [
     "src",
     "declarations"
   ],
-  // Добавьте путь к вашему файлу деклараций
   "references": [
     {
       "path": "./tsconfig.node.json"

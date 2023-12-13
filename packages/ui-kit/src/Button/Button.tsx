@@ -5,8 +5,8 @@ type IButtonProps = {
 
 export const Button = ({ disabled = false, label }: IButtonProps) => {
     return (
-        <button className={'-bottom-1/3 bg-red-950'} disabled={disabled}>
-            {label}
-        </button>
+        <div>
+            <button disabled={disabled}>{label}</button>
+        </div>
     );
 };

@@ -1,5 +1,11 @@
+import { Button } from 'ui-kit';
+
 const MainPage = () => {
-    return <div></div>;
+    return (
+        <div>
+            <Button label={'etjjeotg'} />
+        </div>
+    );
 };
 
 export default MainPage;
