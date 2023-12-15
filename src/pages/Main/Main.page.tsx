@@ -1,8 +1,9 @@
+import { Button } from 'ui-kit';
+
 const MainPage = () => {
-    console.log(import.meta.env);
     return (
         <div>
-            <div>Hello from docker</div>
+            <Button label={'etjjeotg'} />
         </div>
     );
 };

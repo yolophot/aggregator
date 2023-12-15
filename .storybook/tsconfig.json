@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    // Ваши специфичные настройки для .storybook
+
+  },
+  "include": [
+    "../declarations",
+    "**/*.ts", // Подходящие файлы TypeScript
+    "**/*.tsx"
+  ]
+}

@@ -7,6 +7,7 @@ rm -rf node_modules/
 apps=(awr-app awr-app-auth-server)
 
 for app in ${apps[@]}
+
 do
 
 echo Удаление apps/$app/node_modules/
