@@ -1,12 +1,15 @@
 type IButtonProps = {
     disabled?: boolean;
-    label?: string;
+    children?: string;
+    type?: 'submit' | 'reset' | 'button';
 };
 
-export const Button = ({ disabled = false, label }: IButtonProps) => {
+export const Button = ({ disabled = false, children, type }: IButtonProps) => {
     return (
         <div>
-            <button disabled={disabled}>{label}</button>
+            <button type={type} disabled={disabled}>
+                {children}
+            </button>
         </div>
     );
 };

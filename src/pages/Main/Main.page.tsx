@@ -1,9 +1,11 @@
-import { Button } from 'ui-kit';
+import { CreatePhotographerForm } from '@/features/photographers-list/createPhotographerForm';
+import { PhotographersList } from '@/features/photographers-list/photographersList';
 
 const MainPage = () => {
     return (
         <div>
-            <Button label={'etjjeotg'} />
+            <CreatePhotographerForm />
+            <PhotographersList />
         </div>
     );
 };
