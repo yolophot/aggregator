@@ -4,6 +4,8 @@
       "vitest/globals"
     ],
     "target": "ES2020",
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
     "useDefineForClassFields": true,
     "lib": [
       "ES2020",
@@ -14,32 +16,43 @@
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     /* Linting */
     "strict": true,
+    "esModuleInterop": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "allowJs": true,
     /* Paths */
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
-      ],
+      ]
     }
   },
   "include": [
     "src",
-    "declarations"
+    "declarations",
+    "./dist/types/**/*.ts",
+    "./next-env.d.ts"
   ],
   "references": [
     {
       "path": "./tsconfig.node.json"
     }
   ],
-  "extends": "./.storybook/tsconfig.json"
+  "extends": "./.storybook/tsconfig.json",
+  "exclude": [
+    "node_modules"
+  ]
 }

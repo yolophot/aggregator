@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     branches: ['main', { name: 'develop', prerelease: 'develop' }],
     repositoryUrl: 'https://github.com/yolophot/aggregator',
     plugins: [
