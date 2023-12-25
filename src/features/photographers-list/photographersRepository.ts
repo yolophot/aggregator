@@ -1,5 +1,9 @@
 import { dbClient } from '@/shared/lib/db';
-
+import {
+    DeleteListElementCommand,
+    CreateListElementCommand,
+    PhotographerListElement,
+} from './model/types';
 class PhotographersRepository {
     getPhotographersList = async (): Promise<PhotographerListElement[]> => {
         return dbClient.photographer.findMany();

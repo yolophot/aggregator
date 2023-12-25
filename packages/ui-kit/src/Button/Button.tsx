@@ -1,3 +1,4 @@
+'use client';
 type IButtonProps = {
     disabled?: boolean;
     children?: string;

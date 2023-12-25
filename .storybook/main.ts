@@ -1,4 +1,5 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import { dirname, join } from 'path';
+import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
     stories: [
@@ -9,16 +10,22 @@ const config: StorybookConfig = {
         '../packages/**/*.stories.@(js|jsx|ts|tsx)',
     ],
     addons: [
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/addon-onboarding',
-        '@storybook/addon-interactions',
+        getAbsolutePath('@storybook/addon-links'),
+        getAbsolutePath('@storybook/addon-essentials'),
+        getAbsolutePath('@storybook/addon-onboarding'),
+        getAbsolutePath('@storybook/addon-interactions'),
+        getAbsolutePath('@storybook/addon-mdx-gfm'),
     ],
     staticDirs: ['./public'],
     framework: {
-        name: '@storybook/react-vite',
-        options: {},
+        name: getAbsolutePath('@storybook/nextjs'),
+        options: {
+            builder: {
+                useSWC: true, // Enables SWC support
+            },
+        },
     },
+
     docs: {
         autodocs: 'tag',
     },
@@ -33,8 +40,6 @@ const config: StorybookConfig = {
             skipChildrenPropWithoutDoc: false,
             shouldExtractLiteralValuesFromEnum: true,
             propFilter: (prop) => {
-                // не добавляет в сгенерированное API для пропсов стандартные типы из react (Html атрибуты и тп)
-                // если в declarations один элемент и он из @types/react, то это стандартный атрибут
                 if (
                     prop?.declarations?.length === 1 &&
                     prop?.declarations[0]?.fileName.includes('node_modules/@types/react')
@@ -48,3 +53,7 @@ const config: StorybookConfig = {
     },
 };
 export default config;
+
+function getAbsolutePath(value: string): any {
+    return dirname(require.resolve(join(value, 'package.json')));
+}

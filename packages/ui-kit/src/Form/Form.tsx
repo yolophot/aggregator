@@ -1,3 +1,4 @@
+'use client';
 import {
     Form as ShadcnForm,
     FormControl,
@@ -29,7 +30,6 @@ export const Form: FormCompoundComponent &
     (<TFieldValues extends FieldValues = FieldValues>(
         props: FormProps<TFieldValues>,
     ) => JSX.Element) = ({ form, children }) => {
-    // const form = useForm();
     return <ShadcnForm {...form}>{children}</ShadcnForm>;
 };
 

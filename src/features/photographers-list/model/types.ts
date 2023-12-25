@@ -1,13 +1,13 @@
-type PhotographerListElement = {
+export type PhotographerListElement = {
     id: string;
     firstName: string;
     lastName: string;
 };
 
-type CreateListElementCommand = {
+export type CreateListElementCommand = {
     firstName: string;
     lastName: string;
 };
-type DeleteListElementCommand = {
+export type DeleteListElementCommand = {
     id: string;
 };

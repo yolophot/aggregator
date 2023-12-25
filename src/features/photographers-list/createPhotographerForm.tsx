@@ -1,23 +1,22 @@
+'use client';
 import { Button, Form, Input } from 'ui-kit';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useSWRMutation from 'swr/mutation';
-import { photographersRepository } from './photographersRepository';
+
+import { CreateListElementCommand } from './model/types';
+import { useTransition } from 'react';
+import { createPhotographerAction } from '@/features/photographers-list/actions';
 const createPhotographerFormSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
 });
 
-export const CreatePhotographerForm = () => {
-    const { trigger, isMutating } = useSWRMutation(
-        '/api/user',
-        (_, { arg }: { arg: CreateListElementCommand }) =>
-            photographersRepository.createPhotographerElement(arg),
-    );
-
-    console.log(isMutating);
-
+type Props = {
+    revalidatePath: string;
+};
+export const CreatePhotographerForm = ({ revalidatePath }: Props) => {
+    const [isCreateTransiton, startCreateTransition] = useTransition();
     const form = useForm<CreateListElementCommand>({
         resolver: zodResolver(createPhotographerFormSchema),
         defaultValues: {
@@ -26,8 +25,11 @@ export const CreatePhotographerForm = () => {
         },
     });
     const onSubmit = (data: CreateListElementCommand) => {
-        trigger(data);
+        startCreateTransition(async () => {
+            createPhotographerAction(data, revalidatePath);
+        });
     };
+
     return (
         <Form<CreateListElementCommand> form={form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -63,7 +65,9 @@ export const CreatePhotographerForm = () => {
                         </Form.FormItem>
                     )}
                 />
-                <Button type={'submit'}>Добавить</Button>
+                <Button className="mt-8" type="submit" disabled={isCreateTransiton}>
+                    Добавить
+                </Button>
             </form>
         </Form>
     );

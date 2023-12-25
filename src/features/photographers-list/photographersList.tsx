@@ -1,32 +1,26 @@
-import { useEffect, useState } from 'react';
-import { photographersRepository } from '@/features/photographers-list/photographersRepository';
+import { revalidatePath } from 'next/cache';
+import { photographersRepository } from './photographersRepository';
 import { PhotographerItem } from './ui/photographerItem';
 
-export const PhotographersList = () => {
-    const [photographersList, setPhotographersList] = useState<PhotographerListElement[]>([]);
+export async function PhotographersList({ revalidatePagePath }: { revalidatePagePath: string }) {
+    const coursesList = await photographersRepository.getPhotographersList();
 
-    useEffect(() => {
-        async function fetchPhotographers() {
-            const list = await photographersRepository.getPhotographersList();
-            setPhotographersList(list);
-        }
-        fetchPhotographers();
-    }, []);
+    const handleDeleteAction = async (courseId: string) => {
+        'use server';
 
-    const handleDelete = async (photogprapherId: string) => {
-        await photographersRepository.deletePhotographerElement({ id: photogprapherId });
+        await photographersRepository.deletePhotographerElement({ id: courseId });
+        revalidatePath(revalidatePagePath);
     };
+
     return (
-        <div className={'flex flex-col gap-3'}>
-            {photographersList &&
-                photographersList.map((photographer) => (
-                    <PhotographerItem
-                        photographer={photographer}
-                        onDelete={() => handleDelete(photographer.id)}
-                        key={photographer.id}
-                        id={photographer.id}
-                    />
-                ))}
+        <div className="flex flex-col gap-3">
+            {coursesList.map((photographer) => (
+                <PhotographerItem
+                    key={photographer.id}
+                    photographer={photographer}
+                    onDelete={handleDeleteAction.bind(null, photographer.id)}
+                />
+            ))}
         </div>
     );
-};
+}

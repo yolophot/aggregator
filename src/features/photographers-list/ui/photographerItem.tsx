@@ -1,18 +1,31 @@
-import { Card } from 'ui-kit';
+'use client';
+import { Button, Card } from 'ui-kit';
+import { useTransition } from 'react';
+import { PhotographerListElement } from '@/features/photographers-list/model/types';
 
-type Props = {
+export function PhotographerItem({
+    photographer,
+    onDelete,
+}: {
     photographer: PhotographerListElement;
-    onDelete: (id: string) => Promise<void>;
-    id: string;
-};
+    onDelete: () => Promise<void>;
+}) {
+    const [isLoadingDelete, startDeleteTransition] = useTransition();
+    const handleDelete = () => {
+        startDeleteTransition(async () => {
+            await onDelete();
+        });
+    };
 
-export const PhotographerItem = (props: Props) => {
     return (
         <Card
-            id={props.id}
-            onDelete={props.onDelete}
-            title={props.photographer.firstName}
-            description={'Gay'}
+            firstName={photographer.firstName}
+            lastName={photographer.lastName}
+            actions={
+                <Button disabled={isLoadingDelete} onClick={handleDelete}>
+                    Удалить
+                </Button>
+            }
         />
     );
-};
+}

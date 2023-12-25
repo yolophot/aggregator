@@ -7,31 +7,23 @@ import {
     CardTitle,
 } from '../shadcn/sources/ui/card';
 import { ReactNode } from 'react';
-import { Button } from '../shadcn/sources/ui/button';
 
 type Props = {
-    title: string;
-    description: string;
+    firstName: string;
+    lastName: string;
     actions?: ReactNode;
-    onDelete: (id: string) => Promise<void>;
-    id: string;
 };
-export const Card = ({ title, description, onDelete, id }: Props) => {
-    const handleDelete = () => {
-        onDelete(id);
-    };
+export const Card = ({ firstName, lastName, actions }: Props) => {
     return (
         <ShadcnCard>
             <CardHeader>
-                <CardTitle>{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
+                <CardTitle>{firstName}</CardTitle>
+                <CardDescription>{lastName}</CardDescription>
             </CardHeader>
             <CardContent>
                 <p>Card Content</p>
             </CardContent>
-            <CardFooter>
-                <Button onClick={handleDelete}>Удалить</Button>
-            </CardFooter>
+            <CardFooter>{actions}</CardFooter>
         </ShadcnCard>
     );
 };

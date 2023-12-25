@@ -1,1 +1,1 @@
-export { AppRoutes, getRouteMain, getRouteSettings } from './router.ts';
+export { AppRoutes, getRouteMain, getRouteSettings } from './router';
