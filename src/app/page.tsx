@@ -1,5 +1,5 @@
-import { CreatePhotographerForm } from '@/features/photographers-list/createPhotographerForm';
-import { PhotographersList } from '@/features/photographers-list/photographersList';
+import { CreatePhotographerForm } from '@/features/photographers-list';
+import { PhotographersList } from '@/features/photographers-list';
 
 export default async function Home() {
     return (
