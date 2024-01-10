@@ -21,10 +21,3 @@ declare module '*.webp' {
 
     export default image;
 }
-
-declare module Mocha {
-    interface Mocha {
-        addFile(file: string): void;
-    }
-    export default Mocha;
-}
