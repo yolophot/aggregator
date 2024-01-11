@@ -26,11 +26,11 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: SSH Command
-        uses: D3rHase/ssh-command-action@v0.2.2
+        uses: appleboy/ssh-action@v1.0.3
         with:
           # hostname / IP of the server
           host: ${{ secrets.PRODUCTION_SSH_HOST }}
           user: ${{ secrets.PRODUCTION_SSH_USERNAME }}
-          private_key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
-#          host_fingerprint: ${{ secrets.PRODUCTION_SSH_FINGERPRINT }}
-          command: source ~/.nvm/nvm.sh; echo 'hello'
+          password: ${{ secrets.PRODUCTION_PASSWORD }}
+          script: source ~/.nvm/nvm.sh; echo 'hello world'
+
