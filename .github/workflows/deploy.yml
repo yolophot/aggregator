@@ -30,7 +30,7 @@ jobs:
         with:
           # hostname / IP of the server
           host: ${{ secrets.PRODUCTION_SSH_HOST }}
-          user: ${{ secrets.PRODUCTION_SSH_USERNAME }}
+          username: ${{ secrets.PRODUCTION_SSH_USERNAME }}
           password: ${{ secrets.PRODUCTION_PASSWORD }}
           script: source ~/.nvm/nvm.sh; echo 'hello world'
 
