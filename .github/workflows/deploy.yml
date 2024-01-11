@@ -32,5 +32,5 @@ jobs:
           host: ${{ secrets.PRODUCTION_SSH_HOST }}
           user: ${{ secrets.PRODUCTION_SSH_USERNAME }}
           private_key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
-          host_fingerprint: ${{ secrets.PRODUCTION_SSH_FINGERPRINT }}
+#          host_fingerprint: ${{ secrets.PRODUCTION_SSH_FINGERPRINT }}
           command: source ~/.nvm/nvm.sh; echo 'hello'
