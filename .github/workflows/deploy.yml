@@ -32,5 +32,5 @@ jobs:
           host: ${{ secrets.PRODUCTION_SSH_HOST }}
           user: ${{ secrets.PRODUCTION_SSH_USERNAME }}
           password: ${{ secrets.PRODUCTION_PASSWORD }}
-          script: source ~/.nvm/nvm.sh; echo 'hello world'
+          script: source ~/.nvm/nvm.sh; ~/deploy.sh
 

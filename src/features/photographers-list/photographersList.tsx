@@ -14,6 +14,7 @@ export async function PhotographersList({ revalidatePagePath }: { revalidatePage
 
     return (
         <div className="flex flex-col gap-3">
+            <h1>Фотографы</h1>
             {coursesList.map((photographer) => (
                 <PhotographerItem
                     key={photographer.id}
