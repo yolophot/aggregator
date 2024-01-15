@@ -18,8 +18,23 @@ jobs:
       - run: npm run lint
       - run: npm run lint:types
       - run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: production
+      cancel-in-progress: true
+    steps:
+      - name: SSH Command
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          # hostname / IP of the server
+          host: ${{ secrets.PRODUCTION_SSH_HOST }}
+          username: ${{ secrets.PRODUCTION_SSH_USERNAME }}
+          password: ${{ secrets.PRODUCTION_PASSWORD }}
+          script: source ~/.nvm/nvm.sh; ~/deploy.sh
   e2e:
-    needs: lint
+    needs: deploy
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -41,19 +56,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-  deploy:
-    needs: e2e
-    runs-on: ubuntu-latest
-    concurrency:
-      group: production
-      cancel-in-progress: true
-    steps:
-      - name: SSH Command
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          # hostname / IP of the server
-          host: ${{ secrets.PRODUCTION_SSH_HOST }}
-          username: ${{ secrets.PRODUCTION_SSH_USERNAME }}
-          password: ${{ secrets.PRODUCTION_PASSWORD }}
-          script: source ~/.nvm/nvm.sh; ~/deploy.sh
-
