@@ -1,7 +1,7 @@
 'use client';
 import { Button, Card } from 'ui-kit';
 import { useTransition } from 'react';
-import { PhotographerListElement } from '@/features/photographers-list/model/types';
+import { PhotographerListElement } from '../model/types';
 
 export function PhotographerItem({
     photographer,
